@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00.solution Items", "00.solution Items", "{C6121DAB-CCD2-4A45-9903-18599D538541}"
+	ProjectSection(SolutionItems) = preProject
+		abp.props = abp.props
+		common.props = common.props
+		common.test.props = common.test.props
+		configureawait.props = configureawait.props
+		packages.props = packages.props
+		README.md = README.md
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10.src", "10.src", "{04248148-AC82-4E31-8F7A-4E1C8E9C6726}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "20.test", "20.test", "{38F21943-551C-47DE-B45D-2BCBFE4D35A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abp.DbSchemaReader", "src\Abp.DbSchemaReader\Abp.DbSchemaReader.csproj", "{4DDF2C4E-BC5C-4F9B-8F36-E09F7BAF9359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBestRead.Abp.DbSchemaReader.Tests", "test\iBestRead.Abp.DbSchemaReader.Tests\iBestRead.Abp.DbSchemaReader.Tests.csproj", "{3DBF2212-4A5D-4A08-805C-86C0A6034E48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DDF2C4E-BC5C-4F9B-8F36-E09F7BAF9359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DDF2C4E-BC5C-4F9B-8F36-E09F7BAF9359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DDF2C4E-BC5C-4F9B-8F36-E09F7BAF9359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DDF2C4E-BC5C-4F9B-8F36-E09F7BAF9359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DBF2212-4A5D-4A08-805C-86C0A6034E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DBF2212-4A5D-4A08-805C-86C0A6034E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DBF2212-4A5D-4A08-805C-86C0A6034E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DBF2212-4A5D-4A08-805C-86C0A6034E48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4DDF2C4E-BC5C-4F9B-8F36-E09F7BAF9359} = {04248148-AC82-4E31-8F7A-4E1C8E9C6726}
+		{3DBF2212-4A5D-4A08-805C-86C0A6034E48} = {38F21943-551C-47DE-B45D-2BCBFE4D35A2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DD8FF64-31BF-4DD7-8E6B-FA88FDD238F0}
+	EndGlobalSection
+EndGlobal

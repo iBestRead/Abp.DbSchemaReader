@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="../../abp.props"></Import>
+    <Import Project="../../common.props"></Import>
+    <Import Project="../../packages.props"></Import>
+    <Import Project="../../configureawait.props"></Import>
+    
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+        <RootNamespace />
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Version>3.0.4.1</Version>
+        <Description>abp module for read db schemas.eg: table, view</Description>
+        <AssemblyTitle>abp module for read db schemas</AssemblyTitle>
+        <Authors>AkiniX</Authors>
+        <Company>iBestRead</Company>
+        <AssemblyName>iBestRead.Abp.DbSchemaReader</AssemblyName>
+        <PackageId>iBestRead.Abp.DbSchemaReader</PackageId>
+        <PackageTags>abp;abpvnext;Db;Schema</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+        <PackageReference Include="MySql.Data" Version="8.0.19" />
+        <PackageReference Include="Npgsql" Version="4.1.3.1" />
+        <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.60" />
+        <PackageReference Include="Dapper" Version="2.0.35" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.VirtualFileSystem" Version="$(AbpVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="iBestRead\Abp\DbSchemaReader\Sql\**\*.*" />
+        <Content Remove="iBestRead\Abp\DbSchemaReader\Sql\**\*.*" />
+    </ItemGroup>
+    
+</Project>

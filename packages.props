@@ -1,0 +1,11 @@
+<Project>
+
+  <PropertyGroup>
+    <PackageIconUrl>https://raw.githubusercontent.com/iBestRead/Assets/master/img/iBestRead-Logo-128.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/iBestRead/Abp.DbSchemaReader</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/iBestRead/Abp.DbSchemaReader/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/iBestRead/Abp.DbSchemaReader</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
