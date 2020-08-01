@@ -22,6 +22,6 @@ jobs:
     - name: Publish package
       uses: brandedoutcast/publish-nuget@v2.5.4
       with:
-          PROJECT_FILE_PATH: src/iBestRead.Abp.DbSchemaReader/iBestRead.Abp.DbSchemaReader.csproj
+          PROJECT_FILE_PATH: src/Abp.DbSchemaReader/Abp.DbSchemaReader.csproj
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
           NUGET_SOURCE: https://api.nuget.org
