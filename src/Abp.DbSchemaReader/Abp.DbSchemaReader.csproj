@@ -15,7 +15,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>3.0.4.1</Version>
+        <Version>3.0.4.2</Version>
         <Description>abp module for read db schemas.eg: table, view</Description>
         <AssemblyTitle>abp module for read db schemas</AssemblyTitle>
         <Authors>AkiniX</Authors>
@@ -35,6 +35,8 @@
     
     <ItemGroup>
         <PackageReference Include="Volo.Abp.VirtualFileSystem" Version="$(AbpVersion)" />
+        <PackageReference Include="Volo.Abp.ObjectMapping" Version="$(AbpVersion)" />
+        <PackageReference Include="Volo.Abp.AutoMapper" Version="$(AbpVersion)" />
     </ItemGroup>
 
     <ItemGroup>

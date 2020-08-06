@@ -4,38 +4,42 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using iBestRead.Abp.DbSchemaReader.Dtos;
 using iBestRead.Abp.DbSchemaReader.Entities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Volo.Abp.DependencyInjection;
+using Volo.Abp.ObjectMapping;
 
 namespace iBestRead.Abp.DbSchemaReader
 {
-    public class DefaultDbSchemaRepository : IDbSchemaRepository, ITransientDependency
+    public class DefaultDbSchemaReader : IDbSchemaReader, ITransientDependency
     {
-        public ILogger<DefaultDbSchemaRepository> Logger { get; set; }
+        public ILogger<DefaultDbSchemaReader> Logger { get; set; }
+        
         private readonly IDbProviderManager _dbProviderManager;
         private readonly ISqlLoader _sqlLoader;
+        private readonly IObjectMapper _objectMapper;
         
-        public DefaultDbSchemaRepository(
-            ILogger<DefaultDbSchemaRepository> logger, 
+        public DefaultDbSchemaReader(
             IDbProviderManager dbProviderManager, 
-            ISqlLoader sqlLoader)
+            ISqlLoader sqlLoader, 
+            IObjectMapper objectMapper)
         {
             _dbProviderManager = dbProviderManager;
             _sqlLoader = sqlLoader;
-            Logger = NullLogger<DefaultDbSchemaRepository>.Instance;
+            _objectMapper = objectMapper;
+            Logger = NullLogger<DefaultDbSchemaReader>.Instance;
         }
 
-
-        public async Task<List<Table>> GetSchemaAsync(
+        public async Task<List<TableDto>> GetSchemaAsync(
             DbProviderType dbProviderType, 
             string connectionString, 
             string dbName,
             string dbSchema = null)
         {
-            Logger.LogInformation($"----数据库类型:{dbProviderType.ToString()}, 开始查询. ----");
-            var tables = new List<Table>();
+            Logger.LogInformation($"---- 数据库类型:{dbProviderType.ToString()}, 开始读取. ----");
+            var dtoTables = new List<TableDto>();
             try
             {
                 _dbProviderManager.TryGet(dbProviderType, out var dbProvider);
@@ -44,16 +48,19 @@ namespace iBestRead.Abp.DbSchemaReader
                     Logger.LogInformation($"----数据库类型:{dbProviderType.ToString()} 对应的Provider未找到! ----");
                     return null;
                 }
-
-                return await GetSchemaByDbProviderAsync(dbProvider, connectionString, dbName, dbSchema);
-            }
-            finally
-            {
                 
+                var tables = await GetSchemaByDbProviderAsync(dbProvider, connectionString, dbName, dbSchema);
+                Logger.LogInformation($"---- 数据库类型:{dbProviderType.ToString()}, 结束读取. ----");
+
+                dtoTables = _objectMapper.Map<List<Table>, List<TableDto>>(tables);
+                return dtoTables;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "读取数据库Schema发生异常.");
             }
 
-            Logger.LogInformation($"----Provider:{dbProviderType.ToString()},Tables:{tables.Count()} QueryTable End! ----");
-            return tables;
+            return dtoTables;
         }
 
         private async Task<List<Table>> GetSchemaByDbProviderAsync(

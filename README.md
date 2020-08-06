@@ -25,10 +25,10 @@ public class LdapTestModule : AbpModule
 注入服务
 
 ```csharp
-private readonly IDbSchemaRepository _dbSchemaRepository;
-public YourApplicationService(IDbSchemaRepository dbSchemaRepository)
+private readonly IDbSchemaReader _dbSchemaReader;
+public YourApplicationService(IDbSchemaReader dbSchemaReader)
 {
-    _dbSchemaRepository = dbSchemaRepository;
+    _dbSchemaReader = dbSchemaReader;
 }
 
 ```
