@@ -100,7 +100,7 @@ namespace iBestRead.Abp.DbSchemaReader
                         new
                         {
                             DbSchema= dbSchema, 
-                            TableId = table.Id, 
+                            DbName = dbName,
                             TableName = table.Name
                         }))
                     .ToList();

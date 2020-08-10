@@ -5,4 +5,4 @@ SELECT
 FROM
 	Information_Schema.TABLES AS T 
 WHERE
-	T.Table_Schema = ?DbName;
+	T.Table_Schema = @DbName;
