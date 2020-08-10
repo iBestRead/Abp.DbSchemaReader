@@ -27,7 +27,7 @@ SELECT
 FROM
     Information_Schema.COLUMNS AS Col 
 WHERE
-    Table_Schema =?DbName 
-	AND Table_Name =?TableName 
+    Table_Schema = @DbName 
+	AND Table_Name = @TableName 
 ORDER BY
 	Col.ORDINAL_POSITION ASC;
