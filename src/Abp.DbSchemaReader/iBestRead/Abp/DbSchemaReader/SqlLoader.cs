@@ -28,6 +28,9 @@ namespace iBestRead.Abp.DbSchemaReader
             {
                 var sqlTable = _virtualFileProvider
                     .GetFileInfo($"/iBestRead/Abp/DbSchemaReader/Sql/{provider.ToString()}.Table.sql");
+                if(!sqlTable.Exists)
+                    continue;
+                
                 var sqlTableContent = sqlTable.ReadAsString();
                 
                 var sqlColumn = _virtualFileProvider
